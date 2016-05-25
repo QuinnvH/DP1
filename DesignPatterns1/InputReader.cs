@@ -9,6 +9,7 @@ namespace DesignPatterns1
     public class InputReader
     {
         private String filename;
+
         public Dictionary<string, string> RegisterNodes(String filename)
         {
             this.filename = filename;
@@ -34,7 +35,7 @@ namespace DesignPatterns1
             return returnval;
         }
 
-        public void LinkNodes(Dictionary<string, BaseNode> rawNodes)
+        public void LinkNodes(ref Dictionary<string, BaseNode> rawNodes, ref Circuit c)
         {
             string line;
             System.IO.StreamReader file = new System.IO.StreamReader(this.filename);
@@ -50,8 +51,16 @@ namespace DesignPatterns1
                     string key = pair[0];
                     string[] values = pair[1].Split(',');
 
-                    
-                    Console.WriteLine(line);
+                    if (rawNodes[key].GetType() == typeof(InputNode))
+                    {
+                        c.AddToQueue(rawNodes[key]);
+                    }
+
+                    foreach(var val in values)
+                    {
+                        rawNodes[key].AttachObserver(rawNodes[val]);
+                        rawNodes[val].AttachSubject(rawNodes[key]);
+                    }
                 }
             }
 

@@ -8,26 +8,24 @@ namespace DesignPatterns1
 {
     public class InputNode : BaseNode
     {
-        public int value { get; set; }
-
-        public InputNode()
+        public InputNode(ref Circuit c) : base(ref c)
         {
-
         }
 
-        public InputNode(int val)
+        public InputNode(ref Circuit c, int val) : base(ref c)
         {
-            this.value = val;
+            this.output = val;
         }
 
-        public void Execute()
+        public override void Execute()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("INPUT: " + output);
+            this.Notify();
         }
 
-        public BaseNode Clone()
+        public override BaseNode Clone()
         {
-            return new InputNode() { };
+            return new InputNode(ref c) { output = this.output };
         }
     }
 }

@@ -7,15 +7,20 @@ using System.Threading.Tasks;
 namespace DesignPatterns1
 {
     public class AndNode : BaseNode
-    { 
-        public void Execute()
+    {
+        public AndNode(ref Circuit c) : base(ref c)
         {
-            throw new NotImplementedException();
         }
 
-        public BaseNode Clone()
+        public override void Execute()
         {
-            return new AndNode() { };
+            Console.WriteLine("AND");
+            this.Notify();
+        }
+
+        public override BaseNode Clone()
+        {
+            return new AndNode(ref c) {  };
         }
     }
 }

@@ -8,14 +8,19 @@ namespace DesignPatterns1
 {
     public class OrNode : BaseNode
     {
-        public void Execute()
+        public OrNode(ref Circuit c) : base(ref c)
         {
-            throw new NotImplementedException();
         }
 
-        public BaseNode Clone()
+        public override void Execute()
         {
-            return new OrNode() { };
+            Console.WriteLine("OR");
+            this.Notify();
+        }
+
+        public override BaseNode Clone()
+        {
+            return new OrNode(ref c) { };
         }
     }
 }

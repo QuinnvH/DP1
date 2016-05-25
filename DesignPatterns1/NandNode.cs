@@ -8,14 +8,19 @@ namespace DesignPatterns1
 {
     public class NandNode : BaseNode
     {
-        public void Execute()
+        public NandNode(ref Circuit c) : base(ref c)
         {
-            throw new NotImplementedException();
         }
 
-        public BaseNode Clone()
+        public override void Execute()
         {
-            return new NandNode() { };
+            Console.WriteLine("NAND");
+            this.Notify();
+        }
+
+        public override BaseNode Clone()
+        {
+            return new NandNode(ref c) { };
         }
     }
 }

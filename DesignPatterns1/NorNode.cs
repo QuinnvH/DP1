@@ -8,14 +8,19 @@ namespace DesignPatterns1
 {
     public class NorNode : BaseNode
     {
-        public void Execute()
+        public NorNode(ref Circuit c) : base(ref c)
         {
-            throw new NotImplementedException();
         }
 
-        public BaseNode Clone()
+        public override void Execute()
         {
-            return new NorNode() { };
+            Console.WriteLine("NOR");
+            this.Notify();
+        }
+
+        public override BaseNode Clone()
+        {
+            return new NorNode(ref c) { };
         }
     }
 }

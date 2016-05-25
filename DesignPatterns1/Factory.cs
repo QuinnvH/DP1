@@ -9,23 +9,22 @@ namespace DesignPatterns1
     public class Factory
     {
         Dictionary<string, BaseNode> options;
+        Circuit c;
 
-        public Factory()
+        public Factory(ref Circuit c)
         {
-            InputNode low = new InputNode(0);
-            InputNode high = new InputNode(1);
-
+            this.c = c;
             options = new Dictionary<string, BaseNode>();
 
-            RegisterNode("AND", new AndNode());
-            RegisterNode("OR", new OrNode());
-            RegisterNode("INPUT_HIGH", low);
-            RegisterNode("INPUT_LOW", high);
-            RegisterNode("NAND", new NandNode());
-            RegisterNode("NOR", new NorNode());
-            RegisterNode("NOT", new NotNode());
-            RegisterNode("PROBE", new OutputNode());
-            RegisterNode("XOR", new XorNode());
+            RegisterNode("AND", new AndNode(ref c));
+            RegisterNode("OR", new OrNode(ref c));
+            RegisterNode("INPUT_HIGH", new InputNode(ref c, 1));
+            RegisterNode("INPUT_LOW", new InputNode(ref c, 0));
+            RegisterNode("NAND", new NandNode(ref c));
+            RegisterNode("NOR", new NorNode(ref c));
+            RegisterNode("NOT", new NotNode(ref c));
+            RegisterNode("PROBE", new OutputNode(ref c));
+            RegisterNode("XOR", new XorNode(ref c));
         }
 
         public void RegisterNode(string name, BaseNode node)

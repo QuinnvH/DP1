@@ -8,10 +8,16 @@ namespace DesignPatterns1
 {
     public class CircuitBuilder
     {
-        private InputReader inputReader = new InputReader();
+        private InputReader inputReader;
         private Circuit circuit;
 
-        private Factory factory = new Factory();
+        private Factory factory;
+
+        public CircuitBuilder() {
+            inputReader = new InputReader();
+            circuit = new Circuit();
+            factory = new Factory(ref circuit);
+        }
 
         public Circuit GetPreparedCircuit()
         {
@@ -29,9 +35,7 @@ namespace DesignPatterns1
         {
             Dictionary<string, BaseNode> registeredNodes = factory.CreateNodes(rawNodes);
 
-            inputReader.LinkNodes(registeredNodes);
-
-            circuit = new Circuit();
+            inputReader.LinkNodes(ref registeredNodes, ref circuit);
         }
     }
 }

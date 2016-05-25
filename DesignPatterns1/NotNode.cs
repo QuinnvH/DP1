@@ -8,14 +8,19 @@ namespace DesignPatterns1
 {
     public class NotNode : BaseNode
     {
-        public void Execute()
+        public NotNode(ref Circuit c) : base(ref c)
         {
-            throw new NotImplementedException();
         }
 
-        public BaseNode Clone()
+        public override void Execute()
         {
-            return new NotNode() { };
+            Console.WriteLine("NOT");
+            this.Notify();
+        }
+
+        public override BaseNode Clone()
+        {
+            return new NotNode(ref c) { };
         }
     }
 }

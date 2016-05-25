@@ -8,14 +8,19 @@ namespace DesignPatterns1
 {
     public class XorNode : BaseNode
     {
-        public void Execute()
+        public XorNode(ref Circuit c) : base(ref c)
         {
-            throw new NotImplementedException();
         }
 
-        public BaseNode Clone()
+        public override void Execute()
         {
-            return new XorNode() { };
+            Console.WriteLine("XOR");
+            this.Notify();
+        }
+
+        public override BaseNode Clone()
+        {
+            return new XorNode(ref c) { };
         }
     }
 }
