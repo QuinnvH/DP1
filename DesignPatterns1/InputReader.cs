@@ -13,24 +13,49 @@ namespace DesignPatterns1
         {
             this.filename = filename;
 
-            Dictionary<string, string> temp = new Dictionary<string, string>();
+            Dictionary<string, string> returnval = new Dictionary<string, string>();
 
             string line;
             System.IO.StreamReader file = new System.IO.StreamReader(this.filename);
 
             while ((line = file.ReadLine()) != null)
             {
-                System.Console.WriteLine(line);
+                if(line == "") break;
+                if (line.Length > 0 && line[0] != '#')
+                {
+                    line = line.Replace("\t", "").Replace(" ", "").Replace(";", "");
+                    string[] temp = line.Split(':');
+                    returnval.Add(temp[0], temp[1]);
+                }
             }
 
             file.Close();
 
-            return temp;
+            return returnval;
         }
 
         public void LinkNodes(Dictionary<string, BaseNode> rawNodes)
         {
-            
+            string line;
+            System.IO.StreamReader file = new System.IO.StreamReader(this.filename);
+            bool breakLineFound = false;
+
+            while ((line = file.ReadLine()) != null)
+            {
+                if (line == "") breakLineFound = true;
+                if (breakLineFound && line.Length > 0 && line[0] != '#')
+                {
+                    line = line.Replace("\t", "").Replace(" ", "").Replace(";", "");
+                    string[] pair = line.Split(':');
+                    string key = pair[0];
+                    string[] values = pair[1].Split(',');
+
+                    
+                    Console.WriteLine(line);
+                }
+            }
+
+            file.Close();
         }
     }
 }

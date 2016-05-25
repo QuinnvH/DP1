@@ -19,7 +19,16 @@ namespace DesignPatterns1
             InitializeComponent();
 
             circuitBuilder = new CircuitBuilder();
-            circuitBuilder.LoadCircuit("C:\\Users\\Paul\\Source\\Repos\\DP1\\DesignPatterns1\\circuit.txt");
+
+            try
+            {
+                //circuitBuilder.LoadCircuit("C:\\Users\\Paul\\Source\\Repos\\DP1\\DesignPatterns1\\circuit.txt");
+                circuitBuilder.LoadCircuit("C:\\Users\\Omfgugotpwnd\\Source\\Repos\\DP1\\DesignPatterns1\\circuit.txt");
+            } catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
             circuit = circuitBuilder.GetPreparedCircuit();
 
             //circuit.RunCircuit();

@@ -12,5 +12,10 @@ namespace DesignPatterns1
         {
             throw new NotImplementedException();
         }
+
+        public BaseNode Clone()
+        {
+            return new XorNode() { };
+        }
     }
 }

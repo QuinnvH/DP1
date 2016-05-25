@@ -8,9 +8,26 @@ namespace DesignPatterns1
 {
     public class InputNode : BaseNode
     {
+        public int value { get; set; }
+
+        public InputNode()
+        {
+
+        }
+
+        public InputNode(int val)
+        {
+            this.value = val;
+        }
+
         public void Execute()
         {
             throw new NotImplementedException();
+        }
+
+        public BaseNode Clone()
+        {
+            return new InputNode() { };
         }
     }
 }

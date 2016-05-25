@@ -9,5 +9,6 @@ namespace DesignPatterns1
     public interface BaseNode
     {
         void Execute();
+        BaseNode Clone();
     }
 }
