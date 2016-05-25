@@ -59,7 +59,6 @@
     </Compile>
     <Compile Include="InputNode.cs" />
     <Compile Include="InputReader.cs" />
-    <Compile Include="Mediator.cs" />
     <Compile Include="NandNode.cs" />
     <Compile Include="NorNode.cs" />
     <Compile Include="NotNode.cs" />
@@ -89,6 +88,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="circuit.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

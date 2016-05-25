@@ -8,5 +8,9 @@ namespace DesignPatterns1
 {
     public class Factory
     {
+        internal Dictionary<string, BaseNode> CreateNodes(Dictionary<string, string> rawNodes)
+        {
+            return new Dictionary<string, BaseNode>();
+        }
     }
 }

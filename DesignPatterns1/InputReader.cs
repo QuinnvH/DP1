@@ -8,9 +8,29 @@ namespace DesignPatterns1
 {
     public class InputReader
     {
-        public Dictionary<string, BaseNode> ReadFile(String filename)
+        private String filename;
+        public Dictionary<string, string> RegisterNodes(String filename)
         {
-            return new Dictionary<string, BaseNode>();
+            this.filename = filename;
+
+            Dictionary<string, string> temp = new Dictionary<string, string>();
+
+            string line;
+            System.IO.StreamReader file = new System.IO.StreamReader(this.filename);
+
+            while ((line = file.ReadLine()) != null)
+            {
+                System.Console.WriteLine(line);
+            }
+
+            file.Close();
+
+            return temp;
+        }
+
+        public void LinkNodes(Dictionary<string, BaseNode> rawNodes)
+        {
+            
         }
     }
 }

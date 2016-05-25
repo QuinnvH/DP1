@@ -19,10 +19,10 @@ namespace DesignPatterns1
             InitializeComponent();
 
             circuitBuilder = new CircuitBuilder();
-            circuitBuilder.LoadCircuit(filename);
+            circuitBuilder.LoadCircuit("C:\\Users\\Paul\\Source\\Repos\\DP1\\DesignPatterns1\\circuit.txt");
             circuit = circuitBuilder.GetPreparedCircuit();
 
-            circuit.RunCircuit();
+            //circuit.RunCircuit();
         }
         public void ShowOutput()
         {

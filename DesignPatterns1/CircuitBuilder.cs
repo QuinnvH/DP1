@@ -9,8 +9,10 @@ namespace DesignPatterns1
     public class CircuitBuilder
     {
         private InputReader inputReader = new InputReader();
-        private Dictionary<string, BaseNode> nodeList;
         private Circuit circuit;
+
+        private Factory factory = new Factory();
+
         public Circuit GetPreparedCircuit()
         {
             return circuit;
@@ -18,14 +20,18 @@ namespace DesignPatterns1
 
         public void LoadCircuit(String filename)
         {
-            nodeList = inputReader.ReadFile(filename);
-            this.PrepCircuit();
+            Dictionary<string, string> rawNodes = inputReader.RegisterNodes(filename);
+
+            this.PrepCircuit(rawNodes);
         }
 
-        public void PrepCircuit()
+        public void PrepCircuit(Dictionary<string, string> rawNodes)
         {
-            circuit = new Circuit();
+            Dictionary<string, BaseNode> registeredNodes = factory.CreateNodes(rawNodes);
 
+            inputReader.LinkNodes(registeredNodes);
+
+            circuit = new Circuit();
         }
     }
 }
