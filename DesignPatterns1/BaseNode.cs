@@ -11,6 +11,8 @@ namespace DesignPatterns1
         // Properties
         protected Circuit c;
         public int output { get; set; }
+        public int isVisited { get; set; }
+        public string name { get; set; }
         protected int updateCount;
         public List<BaseNode> subjects { get; set; }
         public List<BaseNode> observers { get; set; }
@@ -20,12 +22,17 @@ namespace DesignPatterns1
         {
             this.c = c;
             this.updateCount = 0;
+            this.isVisited = 0;
             subjects = new List<BaseNode>();
             observers = new List<BaseNode>();
         }
         
         // Functions
         public abstract void Execute();
+        public void TextExecute()
+        {
+            this.Notify();
+        }
         public void Update()
         {
             updateCount++;
@@ -49,6 +56,6 @@ namespace DesignPatterns1
                 o.Update();
             }
         }
-        public abstract BaseNode Clone();
+        public abstract BaseNode Clone(string name);
     }
 }

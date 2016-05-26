@@ -20,13 +20,13 @@ namespace DesignPatterns1
 
             circuitBuilder = new CircuitBuilder();
 
-            //try
-            //{
-                //circuitBuilder.LoadCircuit("C:\\Users\\Paul\\Source\\Repos\\DP1\\DesignPatterns1\\circuit.txt");
-                circuitBuilder.LoadCircuit("C:\\Users\\Omfgugotpwnd\\Source\\Repos\\DP1\\DesignPatterns1\\circuit.txt");
-            //} catch (Exception e) {
-                //MessageBox.Show(e.Message);
-            //}
+            try
+            {
+                circuitBuilder.LoadCircuit("C:\\Users\\Paul\\Source\\Repos\\DP1\\DesignPatterns1\\circuit.txt");
+                //circuitBuilder.LoadCircuit("C:\\Users\\Omfgugotpwnd\\Source\\Repos\\DP1\\DesignPatterns1\\circuit.txt");
+            } catch (Exception e) {
+                MessageBox.Show(e.Message);
+            }
 
             circuit = circuitBuilder.GetPreparedCircuit();
 

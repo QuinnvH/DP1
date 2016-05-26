@@ -8,7 +8,7 @@ namespace DesignPatterns1
 {
     public class Circuit
     {
-        Queue<BaseNode> queue = new Queue<BaseNode>();
+        public Queue<BaseNode> queue = new Queue<BaseNode>();
 
         internal void AddToQueue(BaseNode baseNode)
         {
@@ -17,10 +17,15 @@ namespace DesignPatterns1
 
         internal void RunCircuit()
         {
-            while(queue.Count > 0)
+            BaseNode node = null;
+            while (queue.Count > 0)
             {
-                BaseNode node = queue.Dequeue();
+                node = queue.Dequeue();
                 node.Execute();
+            }
+
+            if (node.GetType() != typeof(OutputNode)){
+                bool check = false;
             }
         }
     }

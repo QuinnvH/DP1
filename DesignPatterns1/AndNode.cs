@@ -14,13 +14,13 @@ namespace DesignPatterns1
 
         public override void Execute()
         {
-            Console.WriteLine("AND");
+            this.output = subjects[0].output == 1 && subjects[1].output == 1 ? 1 : 0;
             this.Notify();
         }
 
-        public override BaseNode Clone()
+        public override BaseNode Clone(string param)
         {
-            return new AndNode(ref c) {  };
+            return new AndNode(ref c) { name = param };
         }
     }
 }

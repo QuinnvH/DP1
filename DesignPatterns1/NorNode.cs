@@ -14,13 +14,13 @@ namespace DesignPatterns1
 
         public override void Execute()
         {
-            Console.WriteLine("NOR");
+            this.output = subjects[0].output == 0 && subjects[1].output == 0 ? 1 : 0;
             this.Notify();
         }
 
-        public override BaseNode Clone()
+        public override BaseNode Clone(string param)
         {
-            return new NorNode(ref c) { };
+            return new NorNode(ref c) { name = param };
         }
     }
 }

@@ -19,13 +19,12 @@ namespace DesignPatterns1
 
         public override void Execute()
         {
-            Console.WriteLine("INPUT: " + output);
             this.Notify();
         }
 
-        public override BaseNode Clone()
+        public override BaseNode Clone(string param)
         {
-            return new InputNode(ref c) { output = this.output };
+            return new InputNode(ref c) { output = this.output, name = param };
         }
     }
 }

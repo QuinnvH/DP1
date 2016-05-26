@@ -14,13 +14,13 @@ namespace DesignPatterns1
 
         public override void Execute()
         {
-            Console.WriteLine("NAND");
+            this.output = subjects[0].output == 1 && subjects[1].output == 1 ? 0 : 1;
             this.Notify();
         }
 
-        public override BaseNode Clone()
+        public override BaseNode Clone(string param)
         {
-            return new NandNode(ref c) { };
+            return new NandNode(ref c) { name = param };
         }
     }
 }

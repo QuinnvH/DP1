@@ -39,7 +39,7 @@ namespace DesignPatterns1
             foreach(var node in rawNodes)
             {
                 if(!options.ContainsKey(node.Value)) throw new ArgumentException("Ongeldige node registratie op node: " + node.Key + " met value: " + node.Value);
-                returnval.Add(node.Key, options[node.Value].Clone());
+                returnval.Add(node.Key, options[node.Value].Clone(node.Key));
             }
 
             return returnval;

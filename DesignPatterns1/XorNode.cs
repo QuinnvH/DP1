@@ -14,13 +14,13 @@ namespace DesignPatterns1
 
         public override void Execute()
         {
-            Console.WriteLine("XOR");
+            this.output = subjects[0].output == subjects[1].output ? 0 : 1;
             this.Notify();
         }
 
-        public override BaseNode Clone()
+        public override BaseNode Clone(string param)
         {
-            return new XorNode(ref c) { };
+            return new XorNode(ref c) { name = param };
         }
     }
 }
