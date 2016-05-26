@@ -15,8 +15,6 @@ namespace DesignPatterns1
 
         public CircuitBuilder() {
             inputReader = new InputReader();
-            circuit = new Circuit();
-            factory = new Factory(ref circuit);
         }
 
         public Circuit GetPreparedCircuit()
@@ -26,8 +24,9 @@ namespace DesignPatterns1
 
         public void LoadCircuit(String filename)
         {
+            circuit = new Circuit();
+            factory = new Factory(ref circuit);
             Dictionary<string, string> rawNodes = inputReader.RegisterNodes(filename);
-
             this.PrepCircuit(rawNodes);
         }
 
