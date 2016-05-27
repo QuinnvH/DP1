@@ -14,7 +14,6 @@ namespace DesignPatterns1
     public partial class Form1 : Form
     {
         private MainController main;
-        public Circuit circuit { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -51,16 +50,6 @@ namespace DesignPatterns1
 
         private void btnRunFile_Click(object sender, EventArgs e)
         {
-            foreach (var item in this.main.circuit.view.Controls)
-            {
-                foreach (var node in this.circuit.queue)
-                {
-                    if(node.name == ((CheckBox)item).Text)
-                    {
-                        node.output = ((CheckBox)item).Checked == true ? 1 : 0;
-                    }
-                }
-            }
             main.RunCircuit();
         }
     }

@@ -68,6 +68,9 @@
     <Compile Include="Models\NotNode.cs" />
     <Compile Include="Models\OrNode.cs" />
     <Compile Include="Models\OutputNode.cs" />
+    <Compile Include="NodeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\XorNode.cs" />

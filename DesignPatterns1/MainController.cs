@@ -14,10 +14,10 @@ namespace DesignPatterns1
         private CircuitBuilder circuitBuilder;
         public string filename { get; set; }
         public bool validFile { get; set; }
-        private Form1 parent;
+        private Form1 view;
 
         public MainController(Form1 form1) {
-            parent = form1;
+            view = form1;
             circuitBuilder = new CircuitBuilder();
         }
         public void CheckFile()
@@ -28,27 +28,39 @@ namespace DesignPatterns1
                 {
                     circuitBuilder.LoadCircuit(this.filename);
                     circuit = circuitBuilder.GetPreparedCircuit();
-                    circuit.view.DrawView();
+                    
                     validFile = true;
-                    parent.ChangeEnabled(true);
+                    view.ChangeEnabled(validFile);
 
-                    parent.AddComponent(circuit.view);
+                    circuit.view.DrawView();
+
+                    view.AddComponent(circuit.view);
                 }
                 catch (Exception exp)
                 {
                     validFile = false;
-                    parent.ChangeEnabled(false);
+                    view.ChangeEnabled(validFile);
                     MessageBox.Show(exp.Message);
                 }
             }
             else {
                 validFile = false;
-                parent.ChangeEnabled(false);
+                view.ChangeEnabled(validFile);
                 MessageBox.Show("Het bestand wat u probeert in te laden bestaat niet of heeft de verkeerde extentie");
             }
         }
         public void RunCircuit()
         {
+            foreach (var item in this.circuit.view.Controls)
+            {
+                foreach (var node in this.circuit.queue)
+                {
+                    if (node.name == ((CheckBox)item).Text)
+                    {
+                        node.output = ((CheckBox)item).Checked == true ? 1 : 0;
+                    }
+                }
+            }
             circuit.RunCircuit();
         }
     }
