@@ -13,70 +13,45 @@ namespace DesignPatterns1
 {
     public partial class Form1 : Form
     {
-        private Circuit circuit;
-        private CircuitBuilder circuitBuilder;
-        private string filename;
-        private bool validFile = false;
+        private MainController main;
+        public Circuit circuit { get; set; }
         public Form1()
         {
             InitializeComponent();
+            Initialize();
+        }
 
-            circuitBuilder = new CircuitBuilder();
+        public void Initialize() {
+            main = new MainController(this);
             btnRunFile.Enabled = false;
         }
-        public void ShowOutput()
-        {
 
+        public void AddComponent(Control c) {
+            this.tableLayoutPanel1.Controls.Add(c, 0, 1);
+        }
+        
+        public void ChangeEnabled(bool enabled)
+        {
+            this.btnRunFile.Enabled = enabled;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             // Show the dialog and get result.
-            validFile = false;
+            main.validFile = false;
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK) // Test result.
             {
-                filename = openFileDialog1.FileName;
-                lblFileName.Text = filename;
-            }
+                main.filename = openFileDialog1.FileName;
+                lblFileName.Text = main.filename;
 
-            if (File.Exists(filename) && Path.GetExtension(filename) == ".txt")
-            {
-                try
-                {
-                    circuitBuilder.LoadCircuit(this.filename);
-                    circuit = circuitBuilder.GetPreparedCircuit();
-                    validFile = true;
-                    btnRunFile.Enabled = true;
-
-                    for(var i = 0; i < circuit.queue.Count; i++)
-                    {
-                        CheckBox c = new CheckBox();
-                        c.Checked = circuit.queue.ElementAt(i).output == 0 ? false : true;
-                        c.Top = 15 + i * 20;
-                        c.Left = 10;
-                        c.Text = circuit.queue.ElementAt(i).name;
-                        
-                        this.gbInput.Controls.Add(c);
-                    }
-                    
-                }
-                catch (Exception exp)
-                {
-                    validFile = false;
-                    btnRunFile.Enabled = false;
-                    MessageBox.Show(exp.Message);
-                }
-            } else {
-                validFile = false;
-                btnRunFile.Enabled = false;
-                MessageBox.Show("Het bestand wat u probeert in te laden bestaat niet of heeft de verkeerde extentie");
+                main.CheckFile();
             }
         }
 
         private void btnRunFile_Click(object sender, EventArgs e)
         {
-            foreach (var item in this.gbInput.Controls)
+            foreach (var item in this.main.circuit.view.Controls)
             {
                 foreach (var node in this.circuit.queue)
                 {
@@ -86,10 +61,7 @@ namespace DesignPatterns1
                     }
                 }
             }
-            if (validFile)
-            {
-                circuit.RunCircuit();
-            }
+            main.RunCircuit();
         }
     }
 }
