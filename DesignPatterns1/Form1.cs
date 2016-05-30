@@ -17,10 +17,7 @@ namespace DesignPatterns1
         public Form1()
         {
             InitializeComponent();
-            Initialize();
-        }
-
-        public void Initialize() {
+            //Initialize();
             main = new MainController(this);
             btnRunFile.Enabled = false;
         }
@@ -29,7 +26,7 @@ namespace DesignPatterns1
             this.tableLayoutPanel1.Controls.Add(c, 0, 1);
         }
         
-        public void ChangeEnabled(bool enabled)
+        public void FileLoadComplete(bool enabled)
         {
             this.btnRunFile.Enabled = enabled;
         }

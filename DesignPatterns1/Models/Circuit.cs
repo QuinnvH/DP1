@@ -29,10 +29,6 @@ namespace DesignPatterns1
                 node = queue.Dequeue();
                 node.Execute();
             }
-
-            if (node.GetType() != typeof(OutputNode)){
-                bool check = false;
-            }
         }
     }
 }

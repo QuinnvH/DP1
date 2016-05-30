@@ -20,6 +20,7 @@ namespace DesignPatterns1
             view = form1;
             circuitBuilder = new CircuitBuilder();
         }
+
         public void CheckFile()
         {
             if (File.Exists(filename) && Path.GetExtension(filename) == ".txt")
@@ -30,7 +31,7 @@ namespace DesignPatterns1
                     circuit = circuitBuilder.GetPreparedCircuit();
                     
                     validFile = true;
-                    view.ChangeEnabled(validFile);
+                    view.FileLoadComplete(validFile);
 
                     circuit.view.DrawView();
 
@@ -39,13 +40,13 @@ namespace DesignPatterns1
                 catch (Exception exp)
                 {
                     validFile = false;
-                    view.ChangeEnabled(validFile);
+                    view.FileLoadComplete(validFile);
                     MessageBox.Show(exp.Message);
                 }
             }
             else {
                 validFile = false;
-                view.ChangeEnabled(validFile);
+                view.FileLoadComplete(validFile);
                 MessageBox.Show("Het bestand wat u probeert in te laden bestaat niet of heeft de verkeerde extentie");
             }
         }
@@ -55,7 +56,7 @@ namespace DesignPatterns1
             {
                 foreach (var node in this.circuit.queue)
                 {
-                    if (node.name == ((CheckBox)item).Text)
+                    if (item.GetType() == typeof(CheckBox) && node.name == ((CheckBox)item).Text)
                     {
                         node.output = ((CheckBox)item).Checked == true ? 1 : 0;
                     }
