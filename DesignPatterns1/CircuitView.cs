@@ -7,14 +7,18 @@ using System.Windows.Forms;
 
 namespace DesignPatterns1
 {
-    public class CircuitView : GroupBox
+    public class CircuitView : Panel
     {
         private Circuit model;
         public CircuitView(Circuit model)
         {
             this.model = model;
             this.Dock = DockStyle.Fill;
-
+            this.AutoScroll = true;
+            this.HorizontalScroll.Enabled = true;
+            this.HorizontalScroll.Visible = true;
+            this.VerticalScroll.Enabled = true;
+            this.VerticalScroll.Visible = true;
             this.Text = "";
         }
 
@@ -28,12 +32,11 @@ namespace DesignPatterns1
                 c.Top = 15;
                 c.Left = 10 + i * 75;
                 c.Text = model.queue.ElementAt(i).name;
-
+                c.CheckedChanged += C_CheckedChanged;
                 this.Controls.Add(c);
             }
 
             Queue<BaseNode> q = new Queue<BaseNode>();
-            List<BaseNode> visited = new List<BaseNode>();
             int row = 0;
             int col = 0;
             int marginTop = 10;
@@ -47,21 +50,23 @@ namespace DesignPatterns1
             while(q.Count > 0)
             {
                 BaseNode node = q.Dequeue();
-                if (visited.Contains(node))
+                if (node.isVisited > 0)
                     continue;
 
                 foreach(BaseNode item in node.observers)
                 {
-                    if (!visited.Contains(item))
+                    if (node.isVisited == 0)
                         q.Enqueue(item);
                 }
 
-                visited.Add(node);
+                node.isVisited++;
 
                 NodeView view = new NodeView(node);
+                view.subject = node;
+                node.AttachDrawObserver(view);
 
-                view.Top = 50 + marginTop + row * view.Height;
-                view.Left = marginLeft + col * view.Width;
+                view.Top = 50 + marginTop + row * 125;
+                view.Left = marginLeft + col * 125;
                 row++;
 
                 if(row > 5)
@@ -72,6 +77,13 @@ namespace DesignPatterns1
 
                 this.Controls.Add(view);
             }
+            this.model.ResetVisited();
+        }
+
+        private void C_CheckedChanged(object sender, EventArgs e)
+        {
+            model.registeredNodes[((CheckBox)sender).Text].output = ((CheckBox)sender).Checked == true ? 1 : 0;
+            model.registeredNodes[((CheckBox)sender).Text].NotifyDraw();
         }
     }
 }

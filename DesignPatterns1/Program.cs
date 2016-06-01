@@ -11,6 +11,15 @@ namespace DesignPatterns1
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+
+        /*
+            TODO:
+            Template method
+            Comments
+            Unit testing
+        */
+        
         [STAThread]
         static void Main()
         {

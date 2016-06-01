@@ -13,10 +13,10 @@ namespace DesignPatterns1
         public int output { get; set; }
         public int isVisited { get; set; }
         public string name { get; set; }
-        protected int updateCount;
+        public int updateCount { get; set; }
         public List<BaseNode> subjects { get; set; }
         public List<BaseNode> observers { get; set; }
-
+        public NodeView drawObserver { get; set; }
         // Constructor
         public BaseNode(ref Circuit c)
         {
@@ -29,6 +29,10 @@ namespace DesignPatterns1
         
         // Functions
         public abstract void Execute();
+        public void TextExecute()
+        {
+            this.Notify();
+        }
         public void Update()
         {
             updateCount++;
@@ -41,6 +45,10 @@ namespace DesignPatterns1
         {
             observers.Add(observer);
         }
+        public void AttachDrawObserver(NodeView observer)
+        {
+            this.drawObserver = observer;
+        }
         public void AttachSubject(BaseNode subject)
         {
             subjects.Add(subject);
@@ -51,6 +59,10 @@ namespace DesignPatterns1
             {
                 o.Update();
             }
+        }
+        public void NotifyDraw()
+        {
+            drawObserver.DrawOutput();
         }
         public abstract BaseNode Clone(string name);
     }

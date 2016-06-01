@@ -63,6 +63,8 @@ namespace DesignPatterns1
                 }
             }
             circuit.RunCircuit();
+            circuit.ResetCircuit();
+            Console.WriteLine("--------------");
         }
     }
 }
