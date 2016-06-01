@@ -53,5 +53,15 @@ namespace DesignPatterns1
         {
             main.RunCircuit();
         }
+
+        private void btnStep_Click(object sender, EventArgs e)
+        {
+            main.RunStep();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            main.Reset();
+        }
     }
 }

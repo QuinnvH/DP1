@@ -49,7 +49,13 @@ namespace DesignPatterns1
         }
         public void DrawOutput()
         {
-            this.Output.Text = "Output: " + subject.output.ToString();
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.Output.Text = "Output: " + model.output.ToString();
+        }
+        public void NotifyReset()
+        {
+            this.BackColor = System.Drawing.Color.Green;
+            this.Output.Text = "Output: " + model.output.ToString();
         }
     }
 }

@@ -17,6 +17,7 @@ namespace DesignPatterns1
             this.output = subjects[0].output;
             Console.WriteLine(subjects[0].output);
             this.Notify();
+            this.NotifyDraw();
         }
 
         public override BaseNode Clone(string param)

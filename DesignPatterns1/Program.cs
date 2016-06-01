@@ -15,7 +15,6 @@ namespace DesignPatterns1
 
         /*
             TODO:
-            Template method
             Comments
             Unit testing
         */

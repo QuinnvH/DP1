@@ -29,10 +29,7 @@ namespace DesignPatterns1
         
         // Functions
         public abstract void Execute();
-        public void TextExecute()
-        {
-            this.Notify();
-        }
+        
         public void Update()
         {
             updateCount++;

@@ -38,7 +38,11 @@ namespace DesignPatterns1
             foreach (var item in this.registeredNodes)
             {
                 item.Value.updateCount = 0;
-                item.Value.output = 0;
+                if(item.Value.GetType() != typeof(InputNode))
+                {
+                    item.Value.output = 0;
+                }
+                item.Value.drawObserver.NotifyReset();
             }
             this.queue = new Queue<BaseNode>(this.startNodes);
         }
@@ -47,6 +51,19 @@ namespace DesignPatterns1
             foreach (var item in this.registeredNodes)
             {
                 item.Value.isVisited = 0;
+            }
+        }
+
+        internal void RunStep()
+        {
+            BaseNode node = null;
+            if (queue.Count > 0)
+            {
+                node = queue.Dequeue();
+                node.Execute();
+            } else
+            {
+                MessageBox.Show("Het circuit is afgelopen. Druk op reset om overnieuw te beginnen.");
             }
         }
     }

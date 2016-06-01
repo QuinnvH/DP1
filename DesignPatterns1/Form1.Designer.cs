@@ -34,8 +34,12 @@
             this.btnRunFile = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnStep = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -65,7 +69,7 @@
             // 
             // btnRunFile
             // 
-            this.btnRunFile.Location = new System.Drawing.Point(4, 489);
+            this.btnRunFile.Location = new System.Drawing.Point(3, 3);
             this.btnRunFile.Name = "btnRunFile";
             this.btnRunFile.Size = new System.Drawing.Size(75, 23);
             this.btnRunFile.TabIndex = 2;
@@ -79,7 +83,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnRunFile, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -107,6 +111,37 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(813, 29);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.btnRunFile);
+            this.flowLayoutPanel1.Controls.Add(this.btnStep);
+            this.flowLayoutPanel1.Controls.Add(this.btnReset);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 482);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(813, 30);
+            this.flowLayoutPanel1.TabIndex = 3;
+            // 
+            // btnStep
+            // 
+            this.btnStep.Location = new System.Drawing.Point(84, 3);
+            this.btnStep.Name = "btnStep";
+            this.btnStep.Size = new System.Drawing.Size(75, 23);
+            this.btnStep.TabIndex = 3;
+            this.btnStep.Text = "Step";
+            this.btnStep.UseVisualStyleBackColor = true;
+            this.btnStep.Click += new System.EventHandler(this.btnStep_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(165, 3);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 4;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,6 +154,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -131,6 +167,9 @@
         private System.Windows.Forms.Button btnRunFile;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button btnStep;
+        private System.Windows.Forms.Button btnReset;
     }
 }
 

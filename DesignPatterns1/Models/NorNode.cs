@@ -16,6 +16,7 @@ namespace DesignPatterns1
         {
             this.output = subjects[0].output == 0 && subjects[1].output == 0 ? 1 : 0;
             this.Notify();
+            this.NotifyDraw();
         }
 
         public override BaseNode Clone(string param)

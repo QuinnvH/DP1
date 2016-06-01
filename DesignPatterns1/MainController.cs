@@ -63,8 +63,16 @@ namespace DesignPatterns1
                 }
             }
             circuit.RunCircuit();
+        }
+
+        internal void Reset()
+        {
             circuit.ResetCircuit();
-            Console.WriteLine("--------------");
+        }
+
+        internal void RunStep()
+        {
+            circuit.RunStep();
         }
     }
 }

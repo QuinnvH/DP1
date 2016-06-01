@@ -20,6 +20,7 @@ namespace DesignPatterns1
         public override void Execute()
         {
             this.Notify();
+            this.NotifyDraw();
         }
 
         public override BaseNode Clone(string param)
