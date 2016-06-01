@@ -19,7 +19,9 @@ namespace DesignPatterns1
             InitializeComponent();
             //Initialize();
             main = new MainController(this);
-            btnRunFile.Enabled = false;
+            this.btnReset.Enabled = false;
+            this.btnStep.Enabled = false;
+            this.btnRunFile.Enabled = false;
         }
 
         public void AddComponent(Control c) {
@@ -28,6 +30,8 @@ namespace DesignPatterns1
         
         public void FileLoadComplete(bool enabled)
         {
+            this.btnReset.Enabled = enabled;
+            this.btnStep.Enabled = enabled;
             this.btnRunFile.Enabled = enabled;
         }
 
