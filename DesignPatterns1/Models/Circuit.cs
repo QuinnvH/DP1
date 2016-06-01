@@ -16,22 +16,18 @@ namespace DesignPatterns1
             view = new CircuitView(this);
         }
 
-        internal void AddToQueue(BaseNode baseNode)
+        public void AddToQueue(BaseNode baseNode)
         {
             queue.Enqueue(baseNode);
         }
 
-        internal void RunCircuit()
+        public void RunCircuit()
         {
             BaseNode node = null;
             while (queue.Count > 0)
             {
                 node = queue.Dequeue();
                 node.Execute();
-            }
-
-            if (node.GetType() != typeof(OutputNode)){
-                bool check = false;
             }
         }
     }

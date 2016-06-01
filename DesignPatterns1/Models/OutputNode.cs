@@ -14,6 +14,7 @@ namespace DesignPatterns1
 
         public override void Execute()
         {
+            this.output = subjects[0].output;
             Console.WriteLine(subjects[0].output);
             this.Notify();
         }
