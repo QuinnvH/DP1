@@ -134,6 +134,16 @@
             isDerivedUnion="false"
             aggregation="None"
             isComposite="false" />
+          <property
+            Id="92dc915d-aa7f-4e75-a045-3b1fc8403f63"
+            name="NodeView"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -197,6 +207,22 @@
           <operation
             Id="6fc985d2-f4a1-42a6-a80a-86e8154eb736"
             name="Notify"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="1b0a2358-81a7-4f42-a8bb-429c718e898a"
+            name="AttachDrawObserver"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="1d126ca8-b888-4887-8575-59a8efe3b2fa"
+            name="NotifyDraw"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -1329,6 +1355,28 @@
             isDerivedUnion="false"
             aggregation="None"
             isComposite="false" />
+          <property
+            Id="26e7c9aa-470b-42fc-9db9-120f639e789c"
+            name="List&lt;BaseNodes&gt;"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="89c94635-a0eb-403f-b8dd-6dc1523a4ef3"
+            name="Dictionary&lt;string,BaseNode&gt;"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -1416,6 +1464,30 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="b512639c-e9cc-4569-a0a0-0c210fa91750"
+            name="ResetCircuit"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="dccd3ca8-f295-4881-9c92-c8ff4b5398c4"
+            name="ResetVisited"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="c3451363-7031-4ae7-b823-3fc2ba0f76d3"
+            name="RunStep"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -2452,7 +2524,6 @@
           <property
             Id="ea15d0e4-def7-4070-9f6d-b4a3eeb9776b"
             name="Circuit"
-            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -3090,6 +3161,22 @@
           <operation
             Id="d579ea22-bc71-416b-892e-dbb2ac13c870"
             name="RunCircuit"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="e2892baf-310a-4172-aa79-19cb83907e80"
+            name="Reset"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="cc843e0f-fc74-4b8a-8057-dc95af203cc2"
+            name="RunStep"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"

@@ -199,6 +199,18 @@
                 <property Id="5ee11bc3-d15d-4ae1-874d-b40cdada9151" name="BaseNode" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                   <elementDefinition Id="d35f141d-3b23-4695-8a80-f51eab4904f5" />
                 </property>
+                <property Id="68144cd1-7b9b-428e-9f48-ef8b66534222" name="Label" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d8320964-cb38-464a-993b-8eb2323f3743" />
+                </property>
+                <property Id="6e4c4d8c-93ea-4176-9525-c6bfa588b880" name="Label" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="bbb5e42f-b517-4b13-b1cc-489c75a9884b" />
+                </property>
+                <property Id="032fafd4-7faf-4c2d-8987-85dd604a56d8" name="Label" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a566d41c-23d6-4829-911c-3fe7fdf7c1f0" />
+                </property>
+                <property Id="46bc2e29-9295-4b33-bad1-93e963ccd558" name="BaseNode subject" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="998f42f2-f53d-49a4-8159-ff9981dac80a" />
+                </property>
               </ownedAttributesInternal>
               <ownedOperationsInternal>
                 <operation Id="da6e9f5f-e5c0-4b38-9616-28a4c3b0f6cd" name="NodeView" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -210,6 +222,15 @@
                       </parameter>
                     </operationHasOwnedParameters>
                   </ownedParameters>
+                </operation>
+                <operation Id="ed70e8d0-8fab-46a9-8c38-8b1c08c1fb4f" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="930e21f0-7b2d-43c1-bb49-e50021ee45c7" />
+                </operation>
+                <operation Id="b1f703ab-5e4d-4118-8a87-e856e2139fa4" name="DrawOutput" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="2af40cac-2763-4ce2-8bdc-9aa5a83ff031" />
+                </operation>
+                <operation Id="97330cb4-f8e1-47be-866e-c38e7656171e" name="NotifyReset" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="95750e5c-e94f-413d-a9f5-42e8264d2941" />
                 </operation>
               </ownedOperationsInternal>
             </class>
@@ -283,6 +304,9 @@
                 <property Id="344c401a-dc0a-4663-b561-625a95cddaf5" name="List&lt;BaseNode&gt;" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                   <elementDefinition Id="a9a16770-b280-4510-b358-96b734572bcd" />
                 </property>
+                <property Id="e3aa5e83-ccf0-450a-96ac-157de12045a7" name="NodeView" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="92dc915d-aa7f-4e75-a045-3b1fc8403f63" />
+                </property>
               </ownedAttributesInternal>
               <ownedOperationsInternal>
                 <operation Id="37612be3-bcba-476d-b041-e8b6ce77dfe4" name="Clone" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
@@ -312,6 +336,12 @@
                 </operation>
                 <operation Id="80f2203e-6c7c-4e17-8837-ab00708b97ee" name="Notify" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="6fc985d2-f4a1-42a6-a80a-86e8154eb736" />
+                </operation>
+                <operation Id="05be1f75-40d2-4c3a-8ec8-ebeda1e0ce68" name="AttachDrawObserver" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="1b0a2358-81a7-4f42-a8bb-429c718e898a" />
+                </operation>
+                <operation Id="c47ab22b-0c02-44bd-9f3c-9fb6a8fe672e" name="NotifyDraw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="1d126ca8-b888-4887-8575-59a8efe3b2fa" />
                 </operation>
               </ownedOperationsInternal>
             </class>
@@ -1079,6 +1109,12 @@
                 <property Id="732cb049-cdcb-453d-a6d0-cab14d3a54ef" name="CircuitView" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                   <elementDefinition Id="72ed04ad-bc0e-4cb6-b6b3-450686cb8bee" />
                 </property>
+                <property Id="238b3bb0-bf84-4413-9941-4ccf259956e3" name="List&lt;BaseNodes&gt;" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="26e7c9aa-470b-42fc-9db9-120f639e789c" />
+                </property>
+                <property Id="673c8890-24df-45e3-95bf-14666a158223" name="Dictionary&lt;string,BaseNode&gt;" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="89c94635-a0eb-403f-b8dd-6dc1523a4ef3" />
+                </property>
               </ownedAttributesInternal>
               <ownedOperationsInternal>
                 <operation Id="be6a874d-3131-4ea6-8dde-a0a48becae88" name="RunCircuit" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -1139,6 +1175,15 @@
                       </parameter>
                     </operationHasOwnedParameters>
                   </ownedParameters>
+                </operation>
+                <operation Id="e1ce1178-2dc2-40b5-bfc4-274fa110564b" name="ResetCircuit" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="b512639c-e9cc-4569-a0a0-0c210fa91750" />
+                </operation>
+                <operation Id="dfcd74c7-1bfd-468b-97b3-ecd581867ab5" name="ResetVisited" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="dccd3ca8-f295-4881-9c92-c8ff4b5398c4" />
+                </operation>
+                <operation Id="32f3cd63-2700-47d9-826a-6f27bdc40f02" name="RunStep" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="c3451363-7031-4ae7-b823-3fc2ba0f76d3" />
                 </operation>
               </ownedOperationsInternal>
             </class>
@@ -1539,7 +1584,7 @@
                 <property Id="64a8b03d-b38f-44b1-9048-ec0c6b53880a" name="InputReader" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                   <elementDefinition Id="a064b75a-ab58-43c3-95bb-81c27e0577a7" />
                 </property>
-                <property Id="d45062b2-b450-435a-a247-ad6117c10f1c" name="Circuit" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                <property Id="d45062b2-b450-435a-a247-ad6117c10f1c" name="Circuit" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                   <elementDefinition Id="ea15d0e4-def7-4070-9f6d-b4a3eeb9776b" />
                 </property>
                 <property Id="50f151a7-7a64-4ee5-b376-a5b3a8c09983" name="Factory" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -1928,6 +1973,12 @@
                 </operation>
                 <operation Id="d62bcc1d-5ecc-44b1-a0f2-764bd4bd92a2" name="RunCircuit" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="d579ea22-bc71-416b-892e-dbb2ac13c870" />
+                </operation>
+                <operation Id="5639d356-ffeb-4718-aaab-900f4c2a5e38" name="Reset" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="e2892baf-310a-4172-aa79-19cb83907e80" />
+                </operation>
+                <operation Id="43d4b2ed-e547-4562-af57-3b8288302b4f" name="RunStep" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="cc843e0f-fc74-4b8a-8057-dc95af203cc2" />
                 </operation>
               </ownedOperationsInternal>
             </class>
