@@ -20,11 +20,18 @@ namespace DesignPatterns1
             this.Height = 100;
 
             Name = new Label();
-            Name.Text = "Name: ";
             Linked = new Label();
+            Output = new Label();
+
+            this.Controls.Add(Name);
+            this.Controls.Add(Linked);
+            this.Controls.Add(Output);
+        }
+        public void Draw()
+        {
+            Name.Text = "Name: ";
             Linked.Width = this.Width;
             Linked.AutoSize = true;
-            Output = new Label();
             Output.Padding = new Padding(0, 10, 0, 0);
             Output.Text = "Output: ";
 
@@ -33,19 +40,15 @@ namespace DesignPatterns1
 
             string temp = "";
             for (int i = 0; i < model.observers.Count; i++)
-            {   
+            {
                 temp += model.observers[i].name;
-                if(i != model.observers.Count - 1)
+                if (i != model.observers.Count - 1)
                 {
                     temp += ", ";
                 }
             }
 
             Linked.Text = temp;
-
-            this.Controls.Add(Name);
-            this.Controls.Add(Linked);
-            this.Controls.Add(Output);
         }
         public void DrawOutput()
         {

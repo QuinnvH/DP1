@@ -25,6 +25,10 @@ namespace DesignPatterns1
             this.isVisited = 0;
             subjects = new List<BaseNode>();
             observers = new List<BaseNode>();
+
+            NodeView view = new NodeView(this);
+            view.subject = this;
+            this.AttachDrawObserver(view);
         }
         
         // Functions

@@ -9,7 +9,7 @@ namespace DesignPatterns1
     public class CircuitBuilder
     {
         private InputReader inputReader;
-        private Circuit circuit;
+        public Circuit circuit;
 
         private Factory factory;
 
@@ -22,6 +22,10 @@ namespace DesignPatterns1
             return circuit;
         }
 
+        /*
+            Initialiseert het circuit en de factory.
+            Vraagt aan de inputreader om de strings uit te lezen en in een dictionary te zetten.
+        */
         public void LoadCircuit(String filename)
         {
             circuit = new Circuit();
@@ -30,6 +34,11 @@ namespace DesignPatterns1
             this.PrepCircuit(rawNodes);
         }
 
+        /*
+            Vraagt aan de factory om de nodes te creeeren op basis van de voorheen doorgegeven dictionary.
+            Vraagt aan de inputreader op de gecreeerde nodes onderling met elkaar te linken.
+            Voert de ErrorCheck uit.
+        */
         public void PrepCircuit(Dictionary<string, string> rawNodes)
         {
             circuit.registeredNodes = factory.CreateNodes(rawNodes);
@@ -39,6 +48,10 @@ namespace DesignPatterns1
             CircuitErrorCheck(ref circuit.registeredNodes);
         }
 
+        /*
+            Checkt door middel van Depth First Search of er een circular depedency in het ciruit zit.
+            Loopt daarna door alle nodes heen om te kijken of er Nodes zijn die niet verbonden zijn.
+        */
         public void CircuitErrorCheck(ref Dictionary<string, BaseNode> rawNodes)
         {
             //Circular Depedency Check

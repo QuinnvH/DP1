@@ -61,12 +61,9 @@ namespace DesignPatterns1
 
                 node.isVisited++;
 
-                NodeView view = new NodeView(node);
-                view.subject = node;
-                node.AttachDrawObserver(view);
-
-                view.Top = 50 + marginTop + row * 125;
-                view.Left = marginLeft + col * 125;
+                node.drawObserver.Top = 50 + marginTop + row * 125;
+                node.drawObserver.Left = marginLeft + col * 125;
+                node.drawObserver.Draw();
                 row++;
 
                 if(row > 5)
@@ -75,7 +72,7 @@ namespace DesignPatterns1
                     row = 0;
                 }
 
-                this.Controls.Add(view);
+                this.Controls.Add(node.drawObserver);
             }
             this.model.ResetVisited();
         }

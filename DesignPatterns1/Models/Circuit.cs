@@ -22,6 +22,9 @@ namespace DesignPatterns1
             queue.Enqueue(baseNode);
         }
 
+        /*
+          Voert het circuit uit net zolang totdat de Queue niet leeg is.
+        */
         public void RunCircuit()
         {
             BaseNode node = null;
@@ -31,7 +34,9 @@ namespace DesignPatterns1
                 node.Execute();
             }
         }
-
+        /*
+          Zet alle waardes van het Circuit weer naar de orginele waardes zoals deze zijn ingelezen.
+      */
         public void ResetCircuit()
         {
             this.ResetVisited();
@@ -53,7 +58,9 @@ namespace DesignPatterns1
                 item.Value.isVisited = 0;
             }
         }
-
+        /*
+          Voert een enkele stap uit van het Circuit.
+      */
         internal void RunStep()
         {
             BaseNode node = null;

@@ -10,6 +10,9 @@ namespace DesignPatterns1
     {
         private String filename;
 
+        /*
+           Regristreert de Nodes door door de file heen te lopen tot aan de regelbreek en ze in een dictionary te stoppen.
+       */
         public Dictionary<string, string> RegisterNodes(String filename)
         {
             this.filename = filename;
@@ -35,6 +38,9 @@ namespace DesignPatterns1
             return returnval;
         }
 
+        /*
+          Verbind de Nodes onderling door elkaar op basis van de Nodes in het Circuit.
+        */
         public void LinkNodes(ref Circuit c)
         {
             string line;

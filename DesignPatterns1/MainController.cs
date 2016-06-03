@@ -21,6 +21,11 @@ namespace DesignPatterns1
             circuitBuilder = new CircuitBuilder();
         }
 
+        /*
+            Controleert het bestand op bepaalde eigenschappen zoals:
+                * Of de bestandsnaam eindigt op .txt
+                * Vraagt aan de circuitbuilder of er geen circular depedency in het circuit zit of unlinked nodes.
+        */
         public void CheckFile()
         {
             if (File.Exists(filename) && Path.GetExtension(filename) == ".txt")
@@ -50,6 +55,9 @@ namespace DesignPatterns1
                 MessageBox.Show("Het bestand wat u probeert in te laden bestaat niet of heeft de verkeerde extentie");
             }
         }
+        /*
+            Zet de output van de checkboxes over naar de inputnodes in het ciruit en zet het circuit aan het werk.
+        */
         public void RunCircuit()
         {
             foreach (var item in this.circuit.view.Controls)
